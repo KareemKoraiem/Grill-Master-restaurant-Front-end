@@ -114,19 +114,6 @@ When a customer submits an order, JavaScript validates the entered information a
 
 After confirmation, the order is prepared as a WhatsApp message and the customer is redirected to WhatsApp using the restaurant's configured WhatsApp number.
 
-The WhatsApp number can be changed in:
-
-```text
-order/script.js
-```
-
-Look for:
-
-```javascript
-const RESTAURANT_WHATSAPP = "201012345678";
-```
-
-Replace it with the restaurant's real WhatsApp number using the international format without `+` or the leading zero.
 
 ## Running the Project Locally
 
@@ -146,19 +133,10 @@ index.html
 
 in your browser.
 
-For a better local development experience, you can also use VS Code with the Live Server extension.
-
-## Deployment
-
-The project can be deployed as a static website using services such as:
-
-* GitHub Pages
-* Vercel
-* Netlify
-
-After deployment, the live website link can be added to the top of this README.
 
 ## Notes
+
+This is a Front-end project only
 
 The contact form and order system currently work on the client side.
 
@@ -178,6 +156,8 @@ Some possible improvements for a future version:
 * Add authentication for restaurant staff
 * Add a real CMS for managing menu items
 * Add customer order history
+
+I will implement all of this when I want to make it a complete system
 
 ## Author
 
