@@ -6,7 +6,7 @@ Grill Master is a front-end restaurant website that allows users to browse the m
 
 ## Live Demo
 
-The live demo will be added after deploying the project.
+https://grillmasterrestaurant.vercel.app
 
 ## Features
 
