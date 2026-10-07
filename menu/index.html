@@ -1,0 +1,731 @@
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Grill Master is a real charcoal grill restaurant since 1995. Authentic fire-kissed meats, burgers, and unforgettable smoky flavors.">
+  <meta name="keywords" content="Grill Master, charcoal grill, restaurant, grilled meat, burgers, BBQ, steak, fire grill, food restaurant">
+  <meta name="author" content="Grill Master Restaurant">
+  <meta name="robots" content="index, follow">
+  
+    <title>Grill Master - Menu</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* ========== GLOBAL ========== */
+      body {
+        background-image: url("../assets/img/bg-main.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        padding-top: 80px; /* عشان النافبار ثابت */
+      }
+
+      /* ========== NAVBAR ========== */
+      .custom-nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; /* لوجو — اسم — لينكات */
+        align-items: center;
+        padding: 10px 25px;
+        background-color: #000;
+        border-bottom: 2px solid #d4aa00;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo {
+        height: 55px;
+        transition: 0.3s;
+      }
+
+      .nav-logo:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-center {
+        text-align: center;
+      }
+
+      .restaurant-name {
+        margin: 0;
+        font-size: 26px;
+        font-weight: bold;
+        background: linear-gradient(to right, #ff8c00, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        color: #f3b462;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      /* ========== CARDS (MENU ITEMS) ========== */
+      .card {
+        border: 2px solid #ffc107;
+        box-sizing: border-box;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        background-color: #000;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .card-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #f3b462;
+      }
+
+      .card-text {
+        color: #ffffff;
+      }
+
+      .card-price {
+        color: #ffc107;
+        font-weight: 700;
+        margin-top: auto;
+      }
+
+      /* hover على الكارد في الشاشات الكبيرة بس */
+      @media (hover: hover) and (pointer: fine) {
+        .card {
+          transition: transform 220ms ease, box-shadow 220ms ease;
+          transform-origin: center center;
+        }
+
+        .card:hover {
+          transform: scale(1.03);
+          box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+          z-index: 10;
+        }
+      }
+
+      /* إلغاء الهوفر في الموبايل */
+      @media (max-width: 575.98px) {
+        .card:hover {
+          transform: none;
+          box-shadow: none;
+        }
+      }
+
+      /* تصغير ارتفاع الصورة في الموبايل */
+      @media (max-width: 576px) {
+        .card-img-top {
+          height: 160px;
+        }
+      }
+
+      /* ========== FOOTER ========== */
+      .footer {
+        border-top: 1px solid #444;
+        padding: 20px 0 10px;
+        background-color: #000;
+      }
+
+      .footer-content {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .footer-left .footer-brand {
+        font-size: 18px;
+        font-weight: bold;
+        color: #d4aa00;
+      }
+
+      .footer-left .footer-tagline {
+        font-size: 14px;
+        color: #ccc;
+        margin-top: 4px;
+      }
+
+      .footer-links,
+      .footer-social {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+
+      .footer-links a,
+      .footer-social a {
+        text-decoration: none;
+        color: #f5f5f5;
+        opacity: 0.8;
+        transition: 0.3s;
+      }
+
+      .footer-links a:hover,
+      .footer-social a:hover {
+        opacity: 1;
+        color: #d4aa00;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #777;
+      }
+    </style>
+    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+</head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar custom-nav">
+      <div class="nav-left">
+        <img
+          src="../assets/img/logo.png"
+          alt="Restaurant Logo"
+          class="nav-logo"
+        />
+      </div>
+
+      <div class="nav-center">
+        <!-- اسم المطعم + اسم البيدج -->
+        <h1 class="restaurant-name">Grill Master - Menu</h1>
+      </div>
+
+      <div class="nav-links">
+        <!-- شيلنا Menu من هنا عشان دي صفحة الـ Menu -->
+        <a href="../index.html">Home</a>
+        <a href="../order/index.html">Order</a>
+        <a href="../branches/index.html">Branches</a>
+        <a href="../about/index.html">About / Contact</a>
+      </div>
+    </nav>
+
+    <h1 class="text-center text-warning">for the best grill experience</h1>
+    
+    <!-- Navigation Buttons -->
+    <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+            <button class="btn btn-outline-warning w-100 py-3 fw-bold" onclick="scrollToSection('grilled-beef')">
+            Grilled Beef Section
+            </button>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <button class="btn btn-outline-warning w-100 py-3 fw-bold" onclick="scrollToSection('grilled-chicken')">
+            Grilled Chicken Section
+          </button>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <button class="btn btn-outline-warning w-100 py-3 fw-bold" onclick="scrollToSection('grilled-seafood')">
+            Grilled Seafood Section
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="grilled-beef" class="text-center text-warning">Grilled Beef</h2>
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://media-cdn2.greatbritishchefs.com/media/h01ljtls/gbc_usbeef_pt2-1.whqc_1426x713q80.jpg" class="card-img-top" alt="Texas-style smoked brisket" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Texas-style smoked brisket</h5>
+              <p class="card-text">
+                Often served with barbecue sauce on the side, along with baked
+                beans, coleslaw, or cornbread. It also pairs well with roasted
+                vegetables or smoked mac and cheese for a complete, indulgent
+                meal.
+              </p>
+              <h5 class="card-price">500LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.foodandwine.com/thmb/5FA-NAln3W2Cmc-N7ydsFlQcOSw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mistakes-To-Avoid-When-Grilling-Steak-FT-BLOG0622-2000-9470d6138120449885c7b91524c51cc4.jpg" class="card-img-top" alt="Grilled Steak" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Steak</h5>
+              <p class="card-text">
+                Often paired with mashed potatoes or grilled vegetables, plus a
+                side of peppercorn sauce or garlic butter. It also goes well
+                with a fresh green salad or rice to round out the plate.
+              </p>
+              <h5 class="card-price">350LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://butchersblocktc.com/wp-content/uploads/2020/09/tomahawk.png" class="card-img-top" alt="Grilled Tomahawk Steak" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Tomahawk Steak</h5>
+              <p class="card-text">
+                Typically served with garlic butter or peppercorn sauce,
+                alongside grilled vegetables, roasted potatoes, or mashed
+                potatoes. It also pairs well with a fresh salad or sautéed
+                mushrooms to complete the dish.
+              </p>
+              <h5 class="card-price">1200LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.jessicagavin.com/wp-content/uploads/2012/09/lamb-chops-5-1200.jpg" class="card-img-top" alt="Grilled Lamb Chops" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Lamb Chops</h5>
+              <p class="card-text">
+                Typically served with mint sauce or garlic yogurt sauce,
+                alongside roasted or grilled vegetables, mashed potatoes, or
+                rice. They also pair well with a fresh green salad or warm bread
+                to complete the meal.
+              </p>
+              <h5 class="card-price">800LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://img.texasmonthly.com/2022/10/recipe-lao-beef-skewers-cookbook.jpg?auto=compress&crop=faces&fit=fit&fm=pjpg&ixlib=php-3.3.1&q=45" class="card-img-top" alt="Beef Skewers" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Beef Skewers</h5>
+              <p class="card-text">
+                Typically served with garlic sauce, tahini, or chimichurri,
+                along with rice, grilled vegetables, or fries. They also pair
+                well with fresh salad or warm pita bread to complete the meal.
+              </p>
+              <h5 class="card-price">300LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://d31qjkbvvkyanm.cloudfront.net/images/recipe-images/grilled-beef-koftas-with-herbed-lemon-yogurt--pickled-onions-detail-40dcbd69.jpg" class="card-img-top" alt="Grilled Beef Kofta" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Beef Kofta</h5>
+              <p class="card-text">
+                Typically served with tahini sauce or garlic dip, along with
+                fresh salad or pickles for balance. It also pairs well with warm
+                pita bread or seasoned rice to complete the meal
+              </p>
+              <h5 class="card-price">300LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="grilled-chicken" class="text-center text-warning">Grilled Chicken</h2>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://assets.epicurious.com/photos/54b0530cfca98987608b01c2/1:1/w_2560%2Cc_limit/51137440_spicy-grilled-chicken_1x1.jpg" class="card-img-top" alt="BBQ Grilled Chicken" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">BBQ Grilled Chicken</h5>
+              <p class="card-text">
+                Commonly served with coleslaw, corn on the cob, or grilled
+                vegetables, along with fries or mashed potatoes. It also pairs
+                well with extra BBQ sauce, fresh salad, or warm bread to
+                complete the meal.
+              </p>
+              <h5 class="card-price">350LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://feelgoodfoodie.net/wp-content/uploads/2019/07/Grilled-Lemon-Chicken-4.jpg" class="card-img-top" alt="Lemon and Herb Chicken" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Lemon and Herb Chicken</h5>
+              <p class="card-text">
+                Often served with roasted or grilled vegetables, herb rice, or
+                mashed potatoes. It also pairs well with a fresh green salad or
+                a yogurt-based sauce to balance the citrus and herbs.
+              </p>
+              <h5 class="card-price">250LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://images.qvc.com/is/image/pic/newmedia/itkwd/iphone/device/recipes/images/recipes/assets/itkwd_20130519_slider_1.jpg?$aemrecdetailmain$" class="card-img-top" alt="Stuffed Grilled Chicken Breasts" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Stuffed Grilled Chicken Breasts</h5>
+              <p class="card-text">
+                Commonly served with mashed potatoes, grilled vegetables, or
+                rice pilaf, along with a light cream or garlic sauce. It also
+                pairs well with a fresh green salad or warm bread to complete
+                the meal.
+              </p>
+              <h5 class="card-price">450LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/190418-grilled-chicken-wings-horizontal-3-1556227811.png?crop=1xw:0.8435280189423836xh;center,top&resize=1200:*" class="card-img-top" alt="Grilled Chicken Wings" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Chicken Wings</h5>
+              <p class="card-text">
+                Usually served with BBQ sauce, garlic dip, or spicy buffalo
+                sauce, along with fries or grilled vegetables. They also pair
+                well with coleslaw or a fresh green salad for balance.
+              </p>
+              <h5 class="card-price">300LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Kebab-750x750.jpg" class="card-img-top" alt="Chicken skewers" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Chicken skewers</h5>
+              <p class="card-text">
+                Commonly served with garlic sauce or yogurt dip, alongside rice,
+                fries, or grilled vegetables. They also pair perfectly with
+                fresh salad or warm pita bread for a complete, balanced meal.
+              </p>
+              <h5 class="card-price">250LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuLfcUlsrURK1NPbBQs_p7TOfcHaL1x2SheQ&s" class="card-img-top" alt="Chinese Grilled Duck" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Chinese Grilled Duck</h5>
+              <p class="card-text">
+                Traditionally served with hoisin sauce, steamed pancakes, and
+                sliced green onions or cucumber. It can also be accompanied by
+                fried rice or stir-fried vegetables for a complete meal.
+              </p>
+              <h5 class="card-price">1000LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="grilled-seafood" class="text-center text-warning">Grilled SeaFood</h2>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.billyparisi.com/wp-content/uploads/2023/08/grilled-salmon-1.jpg" class="card-img-top" alt="Grilled Salmon" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Salmon</h5>
+              <p class="card-text">
+                Often served with lemon butter sauce or dill yogurt sauce, along
+                with steamed vegetables or grilled asparagus. It also pairs
+                perfectly with mashed potatoes, rice, or a fresh green salad.
+              </p>
+              <h5 class="card-price">500LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FRecipes%2F2021-04-how-to-grilled-lobster-tail%2F2021-04-19_ATK-51765" class="card-img-top" alt="Grilled Lobster Tail" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Lobster Tail</h5>
+              <p class="card-text">
+                Often served with garlic butter or lemon butter sauce, alongside
+                grilled vegetables, rice, or mashed potatoes. It also pairs
+                perfectly with a fresh green salad or a squeeze of lemon for
+                added brightness.
+              </p>
+              <h5 class="card-price">800LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://weekdaypescatarian.com/wp-content/uploads/2022/10/octopus.jpg" class="card-img-top" alt="Grilled Octopus" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Octopus</h5>
+              <p class="card-text">
+                Commonly served with lemon vinaigrette or garlic herb sauce,
+                along with grilled vegetables or roasted potatoes. It also pairs
+                well with fresh salad, warm bread, or a side of rice to complete
+                the dish.
+              </p>
+              <h5 class="card-price">700LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.seriouseats.com/thmb/tmnquAvcdZHQnKchfZ2HhhkRsB8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250605-SEA-GrilledShrimpHoneyLemon-MelatiCitrawireja-HERO-7ce9f77e2b064052b9b4cf9c3776aaa2.jpg" class="card-img-top" alt="Grilled Shrimp" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Shrimp</h5>
+              <p class="card-text">
+                Often served with garlic butter or lemon herb sauce, alongside
+                rice, grilled vegetables, or fresh salad. They also pair well
+                with warm bread or pasta for a complete, satisfying meal.
+              </p>
+              <h5 class="card-price">400LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://somuchfoodblog.com/wp-content/uploads/2023/06/spicy-grilled-clams11.jpg" class="card-img-top" alt="Grilled Clams" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Clams</h5>
+              <p class="card-text">
+                Typically served with garlic butter, lemon wedges, or herb
+                sauce, along with grilled bread to soak up the juices. They also
+                pair well with fresh salad, pasta, or rice for a complete
+                seafood plate.
+              </p>
+              <h5 class="card-price">250LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://grillonadime.com/wp-content/uploads/2024/10/Grilled-Calamari-low-res-13.jpg" class="card-img-top" alt="Grilled Calamari" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Calamari</h5>
+              <p class="card-text">
+                Often served with a squeeze of fresh lemon, garlic aioli, or
+                herb vinaigrette, along with a side of grilled vegetables or
+                salad. It also pairs well with rice, pasta, or crusty bread to
+                complete the meal.
+              </p>
+              <h5 class="card-price">650LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-center text-warning">Grilled Sides</h2>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.allrecipes.com/thmb/uSrYqlxWK7RRmmWG6mty52mNQ-E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/143230-Quick-and-Easy-Grilled-Potatoes-ddmfs-beauty-4x3-gw-1239-00c49f8f93944c77a64d6c1e1bee6652.jpg" class="card-img-top" alt="Grilled Potatoes" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Potatoes</h5>
+              <p class="card-text">
+                Typically served alongside grilled meats, chicken, or fish, and
+                can be accompanied by garlic sauce, ketchup, or a yogurt-based
+                dip. They also go well with fresh salads or roasted vegetables
+                for a complete meal.
+              </p>
+              <h5 class="card-price">75LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.simplyrecipes.com/thmb/iXvCh-S_tsgLyqpQnU0ulmAnD-Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__07__grilled-sweet-potatoes-horiz-a-1600-7c8292daa98e4020b447f0dc97a45cb7.jpg" class="card-img-top" alt="Grilled Sweet Potatoes" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Sweet Potatoes</h5>
+              <p class="card-text">
+                Often served alongside grilled meats or fish, drizzled with a
+                bit of honey or herbs. It also pairs well with fresh salads,
+                yogurt dips, or roasted vegetables for a complete dish.
+              </p>
+              <h5 class="card-price">75LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/06/Grilled-Corn-on-the-Cob-main-1.jpg" class="card-img-top" alt="Grilled Corn on the Cob" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Corn on the Cob</h5>
+              <p class="card-text">
+                Often served with extra butter, herbs, or a sprinkle of cheese
+                or chili powder. It also pairs well with grilled meats, chicken,
+                or seafood, and can be enjoyed alongside fresh salads or roasted
+                vegetables.
+              </p>
+              <h5 class="card-price">100LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-4">
+      <div class="row gx-3 gy-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.acouplecooks.com/wp-content/uploads/2021/07/Grilled-Bread-009.jpg" class="card-img-top" alt="Grilled Garlic Bread" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Garlic Bread</h5>
+              <p class="card-text">
+                Often served alongside pasta, grilled meats, or soups. It also
+                pairs well with salads, dips, or as a side to seafood dishes
+                like grilled shrimp or fish.
+              </p>
+              <h5 class="card-price">75LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="https://www.allrecipes.com/thmb/nUGitnJbAmuX0ybVn7Qn2Z9GgUE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-51294-Grilled-Pineapple-DDMFS-2x1-8d1884bea6ed454cbbde462795627be3.jpg" class="card-img-top" alt="Grilled pineapple" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='../assets/img/placeholder.svg'" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled pineapple</h5>
+              <p class="card-text">
+                Often served as a dessert with a drizzle of honey, cinnamon, or
+                a scoop of ice cream. It also pairs well with grilled meats,
+                chicken, or seafood for a sweet and savory contrast.
+              </p>
+              <h5 class="card-price">100LE</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card h-100">
+            <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Grilled Avocado Halves" loading="lazy" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Avocado Halves</h5>
+              <p class="card-text">
+                Often served with a squeeze of lemon or lime, a drizzle of
+                balsamic glaze, or a sprinkle of herbs. They also pair well with
+                grilled shrimp, chicken, or a fresh salad for a complete and
+                flavorful dish.
+              </p>
+              <h5 class="card-price">100LE</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Now Button -->
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <a href="../order/index.html" 
+             class="btn btn-warning w-100 py-4 fw-bold fs-4 text-uppercase">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-brand">Grill Master</div>
+          <div class="footer-tagline">
+            Real fire, bold flavor, unforgettable moments.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Menu</a>
+          <a href="../order/index.html">Order</a>
+          <a href="../branches/index.html">Branches</a>
+          <a href="../about/index.html">About/Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2025 Grill Master. All rights reserved.</div>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

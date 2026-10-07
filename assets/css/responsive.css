@@ -1,0 +1,23 @@
+/* Shared responsive fixes - loaded last so it overrides page styles */
+.order-wrapper{box-sizing:border-box}
+img{max-width:100%}
+@media (max-width:768px){
+  .custom-nav{grid-template-columns:auto 1fr !important;padding:0 10px !important;gap:10px}
+  .custom-nav .nav-center{display:none}
+  .custom-nav .nav-links{flex-wrap:wrap;gap:6px 14px !important;margin-right:0 !important;justify-content:flex-end}
+  .custom-nav .nav-links a{font-size:14px !important}
+  .nav-logo{height:45px !important}
+  .hero-title{font-size:38px !important}
+  .tagline,.hero-tagline{font-size:18px !important}
+  .small-carousel{width:94% !important}
+  .small-carousel img{height:220px !important}
+  .footer-content{width:92% !important;flex-direction:column;align-items:flex-start}
+  .order-wrapper{flex-direction:column !important;padding:20px 12px !important}
+  .order-wrapper .form,.order-wrapper .photos{width:100% !important;max-width:none !important;box-sizing:border-box}
+  .box{width:92% !important;box-sizing:border-box}
+}
+/* touch screens have no hover: always show dish name + button */
+@media (hover:none){
+  .product h3,.product button{opacity:1 !important}
+  .product img{opacity:.55}
+}
